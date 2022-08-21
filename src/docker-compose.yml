@@ -1,0 +1,91 @@
+version: "3.9"
+
+services:
+  redis:
+    image: "redis/redis-stack-server"
+    volumes:
+      - redis-data:/data
+    ports:
+      - 6379:6379
+
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    ports:
+      - 8001:8001
+    volumes:
+      - redisinsight:/db
+
+  nginx:
+    build:
+      context: ./nginx
+    env_file:
+      - variables.env
+    ports:
+      - 8002:80
+    depends_on:
+      - stream
+      - graph
+      - topk
+
+  topk:
+    build:
+      context: ./topk
+    env_file:
+      - variables.env
+    depends_on:
+      - redis
+
+  graph:
+    build:
+      context: ./graph
+    env_file:
+      - variables.env
+    depends_on:
+      - redis
+      - market
+      - chain
+  stats:
+    build:
+      context: ./stats
+    env_file:
+      - variables.env
+    depends_on:
+      - redis
+
+  stream:
+    build:
+      context: ./stream
+    env_file:
+      - variables.env
+    depends_on:
+      - redis
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - nginx
+      - redis
+
+  chain:
+    build:
+      context: ./chain
+    env_file:
+      - variables.env
+    depends_on:
+      - redis
+      - market
+
+  market:
+    build:
+      context: ./market
+    env_file:
+      - variables.env
+    depends_on:
+      - redis
+
+volumes:
+  redis-data:
+    driver: local
+  redisinsight:
+    driver: local

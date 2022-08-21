@@ -1,0 +1,4 @@
+fastapi==0.79.0
+uvicorn[standard]==0.18.2
+aioredis==2.0.1
+redis==4.3.4

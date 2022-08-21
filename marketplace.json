@@ -1,0 +1,22 @@
+{
+    "app_name": "Tiny onchain analyzer",
+    "description": "Docker/redis stack that analyze blockchain info", 
+    "hidden": true, 
+    "rank": "999", 
+    "type": "Full App", 
+    "contributed_by": "Community", 
+    "repo_url": "https://github.com/mandrewcito/RedisxDEVHackathon", 
+    "download_url": "https://github.com/mandrewcito/RedisxDEVHackathon/archive/refs/heads/main.zip",
+    "hosted_url": "", 
+    "quick_deploy": "", 
+    "deploy_buttons": [],
+    "language": ["JavaScript", "Python"],
+    "redis_commands": ["SET", "GET"],
+    "redis_features": ["caching", "graph", "timeseries", ""],
+    "redis_modules": ["RedisTimeseries", "RedisGraph"], 
+    "app_image_urls": [], 
+    "youtube_url": "", 
+    "special_tags": ["Hackathon"],
+    "verticals": ["Financial"],
+    "markdown": "https://github.com/mandrewcito/RedisxDEVHackathon/blob/main/README.md"
+}
