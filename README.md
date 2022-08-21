@@ -9,9 +9,9 @@ Project that queries BTC chain and discover interactions between wallets, trendi
 ## Dashboard
 
 
-![Dashboard](./doc/Dashboard.png)
+![Dashboard](./doc/Dashboard.PNG)
 
-![Dashboard](./doc/Dashboard2.png)
+![Dashboard](./doc/Dashboard2.PNG)
 
 ## Wallet detail 
 
